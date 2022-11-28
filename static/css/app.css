@@ -1,0 +1,94 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    height: 97vh;
+}
+
+#container {
+    border-radius: 5px;
+    background-color: white;
+    padding: 50px 0;
+    width: 400px;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form>label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#uploadBtn,
+#fetchBtn {
+    display: inline-block;
+    padding: 15px 20px;
+    border-radius: 50px;
+    background-color: rgb(87, 153, 214);
+    color: white;
+}
+
+#uploadBtn:hover,
+#fetchBtn:hover {
+    transform: scale(1.01);
+    background-color: rgb(29, 126, 216);
+}
+
+#checkUploadedCSV {
+    display: block;
+    margin-top: 20px;
+    width: 80px;
+    padding: 5px 0;
+    border: 1px solid rgb(184, 182, 182);
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#fetchCSVContainer {
+    padding: 30px;
+}
+
+.note {
+    color: red;
+}
+
+#checkRandomCSV {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px 20px;
+    border: 1px solid rgb(184, 182, 182);
+    border-radius: 7px;
+}
+
+#checkUploadedCSV:hover,
+#checkRandomCSV:hover {
+    border: 1px solid black;
+}
+
+#uploadCSVContainer,
+#fetchCSVContainer {
+    display: none;
+}
