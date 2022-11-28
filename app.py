@@ -4,7 +4,6 @@ from pyramid.config import Configurator
 if __name__ == "__main__":
     with Configurator() as config:
         config.include('pyramid_jinja2')
-        config.include('pyramid_excel')
         # config.include('pyramid_debugtoolbar')
         config.add_static_view(name="static", path="static")
         config.add_route('home', '/')

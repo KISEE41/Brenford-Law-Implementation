@@ -1,5 +1,6 @@
 import csv
 import math
+import random
 
 
 BRENFORD_EXPECTED_PERCENTAGES = {
@@ -77,8 +78,12 @@ def test_brenford(distribution):
 
     return chi_square < 15.51
 
-def check_brenford(file):
-    data_list = readfile(file)
+def check_brenford(file, random_dist=False):
+    if random_dist:
+        data_list = [random.randint(1, 1000) for i in range(10000)]
+    else:
+        data_list = readfile(file)
+    
     result = calculate_brenford_values(data_list)
 
     if test_brenford(result):

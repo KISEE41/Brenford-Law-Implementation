@@ -31,6 +31,7 @@ def home_view(request):
             return HTTPFound(location=request.route_url("error", error_type="upload-error"))
     
     return {}
+
     
 
 @view_config(
@@ -38,11 +39,19 @@ def home_view(request):
         renderer="json"
 )
 def result_view(request):
-    file = os.path.join('uploads', request.matchdict['filename'])
-    
-    brenford_proof, result = check_brenford(file)
+    filename = request.matchdict['filename']
+
+    if filename == "random":
+        brenford_proof, result = check_brenford(file=None, random_dist=True)
+    else:
+        file = os.path.join('uploads', filename)
+        brenford_proof, result = check_brenford(file)
+
     if brenford_proof:
-        return result
+        return {
+                "Success": True,
+                "result": result
+        }
     else:
         return HTTPFound(location=request.route_url("error", error_type="law-disproof"))
 
