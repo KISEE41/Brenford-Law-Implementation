@@ -134,7 +134,7 @@ def test_brenford(distribution: Sequence[list[dict]]) -> bool:
     chi_square_stat = 0
     for digit in distribution:
         chi_square = math.pow((digit["observed_frequency"] - digit["expected_frequency"]), 2)
-        chi_square_stat += chi_square
+        chi_square_stat += chi_square / digit["expected_frequency"]
 
     return chi_square < 15.51
 
